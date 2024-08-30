@@ -24,4 +24,5 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/periods', [PeriodController::class, 'index']);
 
     Route::post('/statistical-informations', [StatisticalInformationController::class, 'index']);
+    Route::get('/statistical-informations/{id}', [StatisticalInformationController::class, 'getInformationById']);
 });

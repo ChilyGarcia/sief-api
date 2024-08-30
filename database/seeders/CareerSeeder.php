@@ -19,6 +19,16 @@ class CareerSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+            [
+                'name' => 'Graphic Desig',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Fashion Design',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
             ['id'],
             ['name', 'updated_at']
         );

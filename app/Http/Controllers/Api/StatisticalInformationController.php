@@ -25,4 +25,15 @@ class StatisticalInformationController extends Controller
 
         return response()->json($statisticalInformation, 201);
     }
+
+    public function getInformationById($id)
+    {
+        $statisticalInformation = StatisticalRepository::getByCareerId($id);
+
+        if ($statisticalInformation) {
+            return response()->json($statisticalInformation, 200);
+        } else {
+            return response()->json(['message' => 'Statistical Information not found'], 404);
+        }
+    }
 }
