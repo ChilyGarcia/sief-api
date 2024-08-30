@@ -13,8 +13,14 @@ class CareerSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('careers')->insert([
-            'name' => 'Software Engineer',
-        ]);
+        DB::table('careers')->upsert(
+            [
+                'name' => 'Software Engineer',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            ['id'],
+            ['name', 'updated_at']
+        );
     }
 }

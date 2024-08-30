@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CareerController;
+use App\Http\Controllers\Api\PeriodController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +17,7 @@ Route::group([
     Route::post('/me', [AuthController::class, 'me'])->middleware('auth:api')->name('me');
 });
 
-Route::post('/careers', [CareerController::class, 'index'])->middleware('auth:api');
+Route::middleware('auth:api')->group(function () {
+    Route::post('/careers', [CareerController::class, 'index']);
+    Route::post('/periods', [PeriodController::class, 'index']);
+});
